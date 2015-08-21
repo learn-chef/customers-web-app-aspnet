@@ -41,8 +41,8 @@ cookbook_file grant_access_script_path do
   source 'grant-access.sql'
 end
 
-# Run the SQL file only if the 'learnchef' database has not yet been created.
-powershell_script 'Grant SQL access to IIS_IUSRS' do
+# Run the SQL file only if IIS APPPOOL\Products does not have access.
+powershell_script 'Grant SQL access to IIS APPPOOL\Products' do
   code <<-EOH
     Import-Module "#{sqlps_module_path}"
     Invoke-Sqlcmd -InputFile #{grant_access_script_path}
