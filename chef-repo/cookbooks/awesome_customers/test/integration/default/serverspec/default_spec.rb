@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'web_application::default' do
+describe 'awesome_customers::default' do
 
   # Serverspec examples can be found at
   # http://serverspec.org/resource_types.html
