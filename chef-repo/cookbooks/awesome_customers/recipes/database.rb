@@ -16,8 +16,7 @@ cookbook_file create_database_script_path do
 end
 
 # Get the full path to the SQLPS module.
-program_files_path = ENV['programfiles(x86)'] || ENV['programfiles']
-sqlps_module_path = ::File.join(program_files_path, 'Microsoft SQL Server\110\Tools\PowerShell\Modules\SQLPS')
+sqlps_module_path = ::File.join(ENV['programfiles(x86)'], 'Microsoft SQL Server\110\Tools\PowerShell\Modules\SQLPS')
 
 # Run the SQL file only if the 'learnchef' database has not yet been created.
 powershell_script 'Initialize database' do
